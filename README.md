@@ -12,5 +12,6 @@
 如果viewcontroller的数目大于3，则内存中会保存3+N个viewController，3表示前面、当前、后面这个三个viewcontroller，N等于viewController类型的数目。
 - 跟UIPageViewController触发子viewcontroller的viewWillAppear、viewDidAppear、viewWillDisappear、viewDidDisappear的时机一直。
 - 提供了子viewcontroller各个生命周期的回调，可以用来做数据的缓存、读取缓存能。
+
 ## TWPageTitleViewController
 TWPageTitleViewController则只是简单容器，继承自UICollectionViewController，可以自定义cell的样式，以及自定义高亮条的样式。
