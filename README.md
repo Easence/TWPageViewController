@@ -1,2 +1,16 @@
 # TWPageViewController
 一个支持懒加载的PageViewController，用于替换iOS系统的UIPageViewController。可以用来实现类似腾讯新闻、今日头条的效果。
+
+![效果图1](https://github.com/Easence/TWPageViewController/blob/master/TWPageViewControllerDemo/screenShot.gif?raw=true)
+
+## TWPageViewController能做什么
+- TWPageViewController支持复用
+以viewController的class做key，放入复用池，下回加载同类型的viewcontroller则从复用池里面取去来，每种类型的viewcontroller会缓存一个。省去了开辟viewcontroller的内存以及cpu的消耗。如果复用池没有相应类型的viewcontroller则会创建一个。
+- TWPageViewController实现了懒加载
+  在滚动停止以后才会去加载ViewController。以保证快速滑动过程的流畅，同时也为用户省流量。
+- 控制内存的增长
+如果viewcontroller的数目大于3，则内存中会保存3+N个viewController，3表示前面、当前、后面这个三个viewcontroller，N等于viewController类型的数目。
+- 跟UIPageViewController触发子viewcontroller的viewWillAppear、viewDidAppear、viewWillDisappear、viewDidDisappear的时机一直。
+- 提供了子viewcontroller各个生命周期的回调，可以用来做数据的缓存、读取缓存能。
+## TWPageTitleViewController
+TWPageTitleViewController则只是简单容器，继承自UICollectionViewController，可以自定义cell的样式，以及自定义高亮条的样式。
