@@ -3,7 +3,7 @@
 
 ![效果图1](https://github.com/Easence/TWPageViewController/blob/master/TWPageViewControllerDemo/screenShot.gif?raw=true)
 
-## TWPageViewController能做什么
+## TWPageViewController
 - TWPageViewController支持复用
 以viewController的class做key，放入复用池，下回加载同类型的viewcontroller则从复用池里面取去来，每种类型的viewcontroller会缓存一个。省去了开辟viewcontroller的内存以及cpu的消耗。如果复用池没有相应类型的viewcontroller则会创建一个。
 - TWPageViewController实现了懒加载
@@ -15,3 +15,6 @@
 
 ## TWPageTitleViewController
 TWPageTitleViewController则只是简单容器，继承自UICollectionViewController，可以自定义cell的样式，以及自定义高亮条的样式。
+
+## 已知可以优化的地方
+- TWPageTitleViewController高亮条的移动可以根据TWPageViewController的滑动平滑的过度过去。
