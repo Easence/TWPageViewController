@@ -15,6 +15,8 @@
 @property (nonatomic, weak) id<TWPageTitleViewControllerDataSource> dataSource;
 @property (nonatomic, weak) id<TWPageTitleViewControllerDelegate> delegate;
 
+@property (nonatomic, assign) BOOL allowScrollsToTop;
+
 //当前选中了哪个条目
 @property (nonatomic, assign, readonly) NSInteger selectedIndex;
 

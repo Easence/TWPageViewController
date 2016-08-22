@@ -53,6 +53,11 @@
     
 }
 
+- (void)setAllowScrollsToTop:(BOOL)allowScrollsToTop {
+    _allowScrollsToTop = allowScrollsToTop;
+    self.collectionView.scrollsToTop = allowScrollsToTop;
+}
+
 - (void)gotoItemWithIndex:(NSInteger)index animated:(BOOL)animated {
     if(index < self.numberOfItems && index >= 0 && index != self.selectedIndex)  {
         

@@ -16,6 +16,8 @@
 @property (nullable, nonatomic, weak) id <TWPageViewControllerDelegate> delegate;
 @property (nullable, nonatomic, weak) id <TWPageViewControllerDataSource> dataSource;
 
+@property (nonatomic, assign) BOOL allowScrollsToTop;
+
 //出现在屏幕的当前位置
 @property (nonatomic, assign ,readonly) NSInteger currentIndex;
 

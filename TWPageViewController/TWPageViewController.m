@@ -55,23 +55,23 @@ typedef NS_ENUM(NSUInteger, AppearanceStatus) {
 }
 
 - (void) notifyWillAppear:(BOOL)animated {
-    [self beginAppearanceTransition:YES animated:animated];
     self.appearanceStatus = appearanceWillAppear;
+    [self beginAppearanceTransition:YES animated:animated];
 }
 
 - (void) notifyDidAppear:(BOOL)animated {
-    [self endAppearanceTransition];
     self.appearanceStatus = appearanceDidAppear;
+    [self endAppearanceTransition];
 }
 
 - (void) notifyWillDisappear:(BOOL)animated {
-    [self beginAppearanceTransition:NO animated:animated];
     self.appearanceStatus = appearanceWillDisappear;
+    [self beginAppearanceTransition:NO animated:animated];
 }
 
 - (void) notifyDidDisappear:(BOOL)animated {
-    [self endAppearanceTransition];
     self.appearanceStatus = appearanceDidDisappear;
+    [self endAppearanceTransition];
 }
 
 @end
@@ -108,22 +108,30 @@ typedef NS_ENUM(NSUInteger, AppearanceStatus) {
     [super viewDidLoad];
     
     self.cacheControllers = [NSMutableDictionary dictionary];
+    _currentIndex = -1;
+    
     [self initContainerView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self controllerWillAppearAtIndex:self.currentIndex];
     self.potentialNextIndex = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-//    if(!self.hasLayouted) {
-//        self.hasLayouted = YES;
-//        [self resetSubViewSize];
-//    }
+    [self controllerDidAppearAtIndex:self.currentIndex];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self controllerWillDisappearAtIndex:self.currentIndex];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self controllerDidDisappearAtIndex:self.currentIndex];
 }
 
 //初始化容器View
@@ -140,6 +148,10 @@ typedef NS_ENUM(NSUInteger, AppearanceStatus) {
     }
 }
 
+- (void)setAllowScrollsToTop:(BOOL)allowScrollsToTop {
+    _allowScrollsToTop = allowScrollsToTop;
+    self.containerView.scrollsToTop = allowScrollsToTop;
+}
 
 - (nullable __kindof UIViewController *)dequeueReusableControllerWithClassName:(NSString * _Nonnull)className atIndex:(NSInteger)index{
     if(!className)
