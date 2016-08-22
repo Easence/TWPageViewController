@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TWPageViewController"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "一个支持懒加载的PageViewController，用于替换iOS系统的UIPageViewController。"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Easence/TWPageViewController.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/Easence/TWPageViewController.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
