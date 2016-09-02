@@ -3,6 +3,15 @@
 
 ![效果图1](https://github.com/Easence/TWPageViewController/blob/master/TWPageViewControllerDemo/screenShot.gif?raw=true)
 
+### 如何使用
+
+- （推荐）使用Cocoapods安装，在Podfile中添加如下代码，然后pod install一下就可以了。
+
+```
+pod 'TWPageViewController'
+```
+-   直接拷贝源码到自己的工程目录。
+
 ### 为什么要写这么一个PageViewController
 在新功能开发中，其实也考虑过使用系统的UIPageViewController，但是UIPageViewController有如下的缺点：
 
